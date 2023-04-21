@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en-us">
+    <head>
+        <title>Rainy Days | Contact</title>
+        <meta name="description" content="All about Rainy Days, a retailer of top jackets for any conditions">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/styles.css" rel="stylesheet">
+        
+    </head>
+    <body>
+        <header>
+            <nav class="hamnav">
+                <label for="hamburger">&#9776;</label>
+                <input type="checkbox" id="hamburger">
+                <div class="hamitems">
+                <a href="shop.html">Shop</a>
+                <a href="about.html">About Us</a>
+                <a href="index.html">Home</a>
+                <a href="contact.html">Contact</a>
+                <a href="cart.html">Cart</a>
+               </div> 
+            </nav>
+        </header>
+        <main class="background">
+            <section class ="contact">
+            <div class="textbox">
+                <h1>Contact Us</h1>
+                <p>Please don't hestitate to contact us with any questions or concerns you may have. Our customer service team is trained extensively in choosing the right equipment for safe expeditions. Inquiries will be answered per email within 48 hours.</p>
+            </div>
+            <form id="contactForm">
+                <div id="successMessage">We have received your message!</div>
+                <div>
+                    <label>
+                        Name:
+                        <input name="firstName" id="firstName" />
+                    </label>
+                    <div class="form-error" id="firstNameError">Please enter your name</div>
+                </div>
+                <div>
+                    <label>
+                        Email:
+                        <input name="email" id="email" />
+                    </label>
+                    <div class="form-error" id="emailError">Please enter a valid email address</div>
+                </div>
+                <div class="subject">
+                    <label>
+                        Subject:
+                        <textarea name="subject" id="subject"></textarea>
+                    </label>
+                    <div class="form-error" id="subjectError">Subject must contain at least 10 characters</div>
+                </div>
+                
+
+                <button>Submit</button>
+            </form>
+            
+            </section>
+        </main>
+        <footer>
+            <button id="topBtn">↑Back to top↑</button>
+            <div class="mainfoot">
+                <div class="qlinks">
+                    <h4>Quick links:</h4>
+                    <a href="shop.html">Shop</a>
+                    <a href="cart.html">Cart</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="about.html">About Us</a>
+                </div>
+                <div>
+                    <h4><a href="index.html">Return to home:</a></h4>
+                    <a href="index.html"><img class="resize" src="images/RainyDays_Logo.png" alt="Home"></a>
+                </div>
+                <div class="qlinks">
+                    <h4>Follow us:</h4>
+                    <a href="https://www.facebook.com/">Facebook</a>
+                    <a href="https://www.twitter.com/">Twitter</a>
+                    <a href="https://www.instagram.com/">Instagram</a>
+                </div>
+            </div>
+        </footer> 
+        <script src="../js/contact.js"></script>
+        <script src="../js/script.js"></script>
+
+    </body>
+</html>
