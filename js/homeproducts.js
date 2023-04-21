@@ -10,10 +10,8 @@ async function fetchProducts() {
 async function displayHomePageProducts() {
   const products = await fetchProducts();
 
-  // Define the specific product IDs you want to display on the home page
   const targetProductIds = [12, 14];
 
-  // Filter the specific products you want to display on the home page
   const filteredProducts = products.filter(product => targetProductIds.includes(product.id));
 
   filteredProducts.sort((a, b) => a.id - b.id);
@@ -24,7 +22,7 @@ async function displayHomePageProducts() {
   for (const product of filteredProducts) {
     html += `
       <div class="product">
-        <img src="${product.images[0].src}" alt="${product.name}">
+        <img src="${product.images[0].src}" alt="${product.name}" loading="lazy">
         <h2>${product.name}</h2>
         <p>NOK ${product.price}</p>
         <button onclick="viewProductDetail(${product.id})">View</button>
