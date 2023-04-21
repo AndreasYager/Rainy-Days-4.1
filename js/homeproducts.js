@@ -1,25 +1,42 @@
-// Get a reference to the product container element on the page
-var productContainer = document.getElementById("product-duo");
-
-// Create HTML for the first two products
-var html = "";
-for (var i = 0; i < 2; i++) {
-  var product = products[i];
-  html += `
-    <div class="product">
-      <img src="${product.image}" alt="${product.name}">
-      <h2>${product.name}</h2>
-      <p>NOK ${product.price}</p>
-      <button onclick="viewProductDetail(${i})">View</button>
-    </div>
-  `;
+async function fetchProducts() {
+  const response = await fetch("https://rainydays.andreasyager.no/wp-json/wc/v3/products", {
+    headers: {
+      "Authorization": "Basic " + btoa("ck_6695c11bf886b7acff4ccc501c34f7c68b3bbe8b:cs_f58825ecf3de36b211ee76382838457843775d2d"),
+    },
+  });
+  return response.json();
 }
 
-// Add the HTML for the first two products to the product container
-productContainer.innerHTML = html;
+async function displayHomePageProducts() {
+  const products = await fetchProducts();
 
-// Function to navigate to the product detail page for a specific product
-function viewProductDetail(index) {
-    // Navigate to the product detail page, passing the product index as a query parameter
-    window.location.href = "details.html?product=" + index;
+  // Define the specific product IDs you want to display on the home page
+  const targetProductIds = [12, 14];
+
+  // Filter the specific products you want to display on the home page
+  const filteredProducts = products.filter(product => targetProductIds.includes(product.id));
+
+  filteredProducts.sort((a, b) => a.id - b.id);
+
+  const productContainer = document.getElementById("product-duo");
+
+  let html = "";
+  for (const product of filteredProducts) {
+    html += `
+      <div class="product">
+        <img src="${product.images[0].src}" alt="${product.name}">
+        <h2>${product.name}</h2>
+        <p>NOK ${product.price}</p>
+        <button onclick="viewProductDetail(${product.id})">View</button>
+      </div>
+    `;
   }
+
+  productContainer.innerHTML = html;
+}
+
+function viewProductDetail(id) {
+  window.location.href = "details.html?product=" + id;
+}
+
+displayHomePageProducts();

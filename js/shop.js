@@ -6,6 +6,9 @@ fetch('https://rainydays.andreasyager.no/wp-json/wc/v3/products', {
 })
 .then((response) => response.json())
 .then((products) => {
+
+  products.sort((a, b) => a.id - b.id);
+
   // Display the products
   var productContainer = document.getElementById("product-container");
 
@@ -28,7 +31,7 @@ fetch('https://rainydays.andreasyager.no/wp-json/wc/v3/products', {
 .catch((error) => console.error('Error fetching products:', error));
 
 // Function to navigate to the product detail page for a specific product
-function viewProductDetail(productId) {
+function viewProductDetail(Id) {
   // Navigate to the product detail page, passing the product ID as a query parameter
   window.location.href = "details.html?product=" + productId;
 }
