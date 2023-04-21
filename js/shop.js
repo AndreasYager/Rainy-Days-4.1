@@ -27,6 +27,6 @@ fetch('https://rainydays.andreasyager.no/wp-json/wc/v3/products', {
 })
 .catch((error) => console.error('Error fetching products:', error));
 
-function viewProductDetail(Id) {
+function viewProductDetail(productId) {
   window.location.href = "details.html?product=" + productId;
 }
