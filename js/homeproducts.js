@@ -1,5 +1,5 @@
-async function fetchProducts() {
-  const response = await fetch("https://rainydays.andreasyager.no/wp-json/wc/v3/products", {
+async function fetchFeaturedProducts() {
+  const response = await fetch("https://rainydays.andreasyager.no/wp-json/wc/v3/products?featured=true", {
     headers: {
       "Authorization": "Basic " + btoa("ck_6695c11bf886b7acff4ccc501c34f7c68b3bbe8b:cs_f58825ecf3de36b211ee76382838457843775d2d"),
     },
@@ -8,18 +8,12 @@ async function fetchProducts() {
 }
 
 async function displayHomePageProducts() {
-  const products = await fetchProducts();
-
-  const targetProductIds = [12, 14];
-
-  const filteredProducts = products.filter(product => targetProductIds.includes(product.id));
-
-  filteredProducts.sort((a, b) => a.id - b.id);
+  const products = await fetchFeaturedProducts();
 
   const productContainer = document.getElementById("product-duo");
 
   let html = "";
-  for (const product of filteredProducts) {
+  for (const product of products) {
     html += `
       <div class="product">
         <img src="${product.images[0].src}" alt="${product.name}" loading="lazy">
