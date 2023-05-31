@@ -8,7 +8,7 @@ This project is meant to fetch products from a Wordpress API and display them on
 
 ## Built With
 
-- Wordpress Rest API
+- Wordpress API
 - HTML, CSS, Javascript
 
 ### Running
