@@ -13,7 +13,7 @@ This project is meant to fetch products from a Wordpress API and display them on
 
 ### Running
 
-https://symphonious-dieffenbachia-ce7925.netlify.app/index.html
+https://symphonious-dieffenbachia-ce7925.netlify.app
 
 ## Contact
 
